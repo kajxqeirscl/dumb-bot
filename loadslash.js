@@ -24,9 +24,9 @@ client.on("ready", async () => {
     if (!guild)
         return console.error("target guild not found")
     
-        await guild.commands.set([...client.slashcommands.values()])
-        console.log(`successfully loaded ${client.slashcommands.size} slash commands`)
-        process.exit(0)
+    await guild.commands.set([...client.slashcommands.values()])
+    console.log(`successfully loaded ${client.slashcommands.size} slash commands`)
+    process.exit(0)
 })
 
 module.exports = bot
