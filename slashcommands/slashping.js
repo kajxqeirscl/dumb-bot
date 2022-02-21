@@ -1,10 +1,10 @@
 const run = async (client, interaction) => {
     try {
-        const mesg = await interaction.reply({content: "pong"});
+        const mesg = await interaction.reply({content: "pong", fetchReply: true});
 
-        await interaction.editReply({content: `pong \`${mesg.created.Timestamp - interaction.created.Timestamp}\``})
+        await interaction.editReply({content: `pong \`${mesg.createdTimestamp - interaction.createdTimestamp} ms\``})
     } catch (err) {
-        consloe.log("error => ",err)
+        console.log("error => ",err)
     }
 
 }
@@ -12,5 +12,6 @@ const run = async (client, interaction) => {
 module.exports = {
     name: "ping",
     description: "ping pong",
-    type: "CHAT_INPUT"
+    type: "CHAT_INPUT",
+    run: run
 }
